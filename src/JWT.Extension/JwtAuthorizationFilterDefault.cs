@@ -11,7 +11,6 @@ namespace JWT.Extension
 
             if (string.IsNullOrWhiteSpace(powers))
                 return true;
-
             var claimPowers = context.HttpContext.User.Claims.FirstOrDefault(p => p.Type.Equals("powers", StringComparison.CurrentCultureIgnoreCase))?.Value;
 
             if (string.IsNullOrWhiteSpace(claimPowers))

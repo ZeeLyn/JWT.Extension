@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{38EBDC21-09C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWT.Extension", "src\JWT.Extension\JWT.Extension.csproj", "{9F521341-5367-4A39-9CB9-CE94A4D534E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{CB9F25A3-1418-49F6-A2D0-DDBC9C82D8E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Api", "WebApi\Sample.Api.csproj", "{CB9F25A3-1418-49F6-A2D0-DDBC9C82D8E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

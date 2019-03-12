@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using JWT.Extension;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace Sample.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,12 +21,12 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(JwtTokenBuilder.Build(new List<Claim> { new Claim("id", "1") }, TimeSpan.FromMinutes(5)));
+            return Ok(JwtTokenBuilder.Build(new List<Claim> { new Claim("id", "1"), new Claim("powers", "get") }, TimeSpan.FromMinutes(1)));
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        [Permission()]
+        [Permission(Powers = "get")]
         public ActionResult<string> Get(int id)
         {
 
@@ -38,6 +35,7 @@ namespace WebApi.Controllers
 
         // POST api/values
         [HttpPost]
+        [Permission(Powers = "post", Policy = "a")]
         public void Post([FromBody] string value)
         {
         }

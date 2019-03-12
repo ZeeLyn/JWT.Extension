@@ -16,10 +16,10 @@ namespace JWT.Extension
 
         public JwtToken Build(IEnumerable<Claim> claims, TimeSpan expires)
         {
-            var notBefore = DateTime.UtcNow;
+            var notBefore = DateTime.Now;
             var jwtHeader = new JwtHeader(Options.SigningCredentials);
-            var expired = DateTime.Now.Add(expires);
-            var jwtPayload = new JwtPayload(Options.Issuer, Options.Audience, claims, notBefore, expired);
+            var expired = notBefore.Add(expires);
+            var jwtPayload = new JwtPayload(Options.Issuer, Options.Audience, claims, notBefore, expired, notBefore);
             var jwt = new JwtSecurityToken(jwtHeader, jwtPayload);
             var token = new JwtSecurityTokenHandler().WriteToken(jwt);
             return new JwtToken
