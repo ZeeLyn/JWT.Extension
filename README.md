@@ -55,7 +55,7 @@ public class ValuesController : ControllerBase
 
 	public IActionResult Login()
 	{
-		return Ok(JwtTokenBuilder.Build(new List<Claim> { new Claim("id", "1"), new Claim("powers", "get") }, TimeSpan.FromMinutes(1)));
+		return Ok(JwtTokenBuilder.Build(new List<Claim> { new Claim("id", "1"), new Claim("powers", "get,post") }, TimeSpan.FromMinutes(1)));
 	}
 }
 ```
