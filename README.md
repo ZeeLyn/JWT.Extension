@@ -35,6 +35,16 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Custom authorization filter
 ```csharp
+public class CustomAuthorizationFilter : IJwtAuthorizationFilter
+{
+	public bool OnAuthorization(AuthorizationFilterContext context, string roles, string powers, string authenticationSchemes)
+	{
+	    return true;
+	}
+}
+```
+
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
