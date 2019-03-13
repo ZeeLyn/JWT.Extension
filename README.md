@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Generate token
 ```csharp
-public class ValuesController : ControllerBase
+public class LoginController : ControllerBase
 {
 	private IJwtTokenBuilder JwtTokenBuilder { get; }
 
